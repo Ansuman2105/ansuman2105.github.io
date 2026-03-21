@@ -31,7 +31,8 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(135deg, #0a0f1e 0%, #1a1f3a 50%, #0a0f1e 100%);
+    background: url('diego-ph-5LOhydOtTKU-unsplash.jpg') center/cover no-repeat fixed;
+    background-color: #0a0f1e;
 }
 
 .animated-bg::before {
@@ -41,16 +42,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
-    animation: backgroundShift 20s ease-in-out infinite;
-}
-
-@keyframes backgroundShift {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
+    background: rgba(10, 15, 30, 0.85);
+    z-index: 1;
 }
 
 .animated-bg::after {
@@ -61,7 +54,8 @@ body {
     right: 0;
     bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2338bdf8' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
+    opacity: 0.3;
+    z-index: 2;
 }
 
 /* Header with Enhanced Hero Section */
@@ -73,7 +67,7 @@ header {
     justify-content: center;
     text-align: center;
     padding: 80px 20px;
-    background: transparent;
+    background: url('diego-ph-5LOhydOtTKU-unsplash.jpg') center/cover no-repeat;
     overflow: hidden;
 }
 
@@ -94,7 +88,7 @@ header {
     margin: 0 auto;
 }
 
-/* Fixed Profile Image */
+/* Profile Image */
 .profile-image-wrapper {
     width: 200px;
     height: 200px;
@@ -192,6 +186,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .subtitle i {
@@ -206,7 +201,7 @@ h1 {
     line-height: 1.8;
 }
 
-/* Social Links - Fixed Layout */
+/* Social Links */
 .social-links {
     display: flex;
     gap: 15px;
@@ -250,6 +245,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
+    z-index: 10;
 }
 
 @keyframes bounce {
@@ -263,7 +259,7 @@ h1 {
     color: #38bdf8;
 }
 
-/* Container with Background Sections */
+/* Container */
 .container {
     max-width: 1200px;
     margin: auto;
@@ -277,7 +273,6 @@ h1 {
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Section Backgrounds */
 .section::before {
     content: '';
     position: absolute;
@@ -322,7 +317,7 @@ h1 {
     border-radius: 10px;
 }
 
-/* Cards with Better Spacing */
+/* Cards */
 .card {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px);
@@ -392,7 +387,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-/* Stats Grid - Fixed Layout */
+/* Stats Grid */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -454,7 +449,7 @@ h1 {
     font-weight: 500;
 }
 
-/* Skills - Better Wrapping */
+/* Skills */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -551,7 +546,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Contact Grid - Fixed Layout */
+/* Contact Grid */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -753,19 +748,19 @@ footer p {
 <header>
     <div class="header-bg-overlay"></div>
     <div class="header-content">
-        <!-- Profile Image - Replace with your actual photo -->
+        <!-- Profile Image -->
         <div class="profile-image-wrapper">
-            <!-- OPTION 1: Use actual photo (recommended) -->
-            <!-- <img src="photo.jpg" alt="Ansuman Nayak" class="profile-image"> -->
+            <!-- USE YOUR ACTUAL PHOTO -->
+            <img src="ansu.jpg" alt="Ansuman Nayak" class="profile-image">
             
-            <!-- OPTION 2: Placeholder (currently active) -->
-            <img src="photo.jpg" alt="Ansuman Nayak" class="profile-image">
+            <!-- OR USE PLACEHOLDER IF NO PHOTO -->
+            <!-- <div class="profile-placeholder">AN</div> -->
         </div>
         
         <h1>Ansuman Nayak</h1>
         <p class="subtitle">
             <i class="fas fa-user-tie"></i>
-            Program / Project Management Professional
+            <span>Program / Project Management Professional</span>
         </p>
         <p class="tagline">
             Multi-Platform Delivery | STB | TV | Mobile | CMS
