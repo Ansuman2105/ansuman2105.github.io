@@ -5,93 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ansuman Nayak | Program Manager</title>
 
-<link rel="stylesheet" href="css/styles.css">
+<!-- CSS -->
+<link rel="stylesheet" href="css/style.css">
 
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-<!-- Google Analytics (replace ID later) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXX');
-</script>
-
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="loader"></div>
+<div class="animated-bg"></div>
 
+<!-- Navbar -->
 <nav>
     <div class="nav-container">
         <div class="logo">A.N</div>
 
         <div class="nav-links">
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+            <a href="#education">Education</a>
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
         </div>
 
-        <div class="nav-actions">
-            <button class="theme-toggle">
-                <i class="fas fa-moon"></i>
-            </button>
-            <a href="#contact" class="contact-btn">Hire Me</a>
-        </div>
+        <a href="#contact" class="contact-btn">Contact Me</a>
     </div>
 </nav>
 
+<!-- Hero -->
 <header id="about">
     <div class="header-content">
 
-        <div>
+        <div class="hero-text">
+            <div class="availability-badge">Available for Internships & Roles</div>
+
             <h1 class="hero-greeting">
                 Hi, I'm <span class="name">Ansuman</span>
             </h1>
 
-            <p class="hero-subtitle typing"></p>
+            <p class="hero-title">Computer Science Engineering Student</p>
+            <p class="hero-subtitle">Program Manager | Data Analyst | Developer</p>
 
             <p class="hero-description">
-                Program Manager managing IoT, STB & Mobile ecosystems. I align teams, fix chaos, and deliver products that actually work.
+                Passionate about data, code, and problem-solving.
             </p>
 
-            <a href="#contact" class="btn-primary">Let's Connect</a>
+            <div class="hero-buttons">
+                <button class="btn-primary">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </button>
+
+                <a href="#" class="btn-secondary">
+                    <i class="fas fa-external-link-alt"></i> View CV
+                </a>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://github.com/Ansuman2105" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ansuman2000" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:nansuman2@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
         </div>
 
-        <div>
-            <img src="assets/images/ansu.jpg" class="profile-image">
+        <div class="hero-image-wrapper">
+            <div class="hero-image-container">
+                <img src="assets/images/ansu.jpg" class="profile-image" alt="Ansuman">
+            </div>
         </div>
 
     </div>
 </header>
 
-<section class="container" id="projects">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="project-card">
-        <h3>Smart Hospitality Platform</h3>
-        <p>IoT-based ecosystem integrating STB, Mobile and CMS.</p>
-    </div>
-
-    <div class="project-card">
-        <h3>Android AI Test Agent</h3>
-        <p>AI automation framework for Android testing.</p>
-    </div>
-</section>
-
-<section class="container" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>Email: nansuman2@gmail.com</p>
-</section>
-
+<!-- Footer -->
 <footer>
     <p>© 2026 Ansuman Nayak</p>
 </footer>
 
+<!-- JS -->
 <script src="js/script.js"></script>
-
 </body>
 </html>
