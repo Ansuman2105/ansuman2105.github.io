@@ -5,37 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ansuman Nayak | Program Manager</title>
 
-<!-- External CSS -->
 <link rel="stylesheet" href="css/styles.css">
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Google Analytics (replace ID later) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXX');
+</script>
 
 </head>
 
 <body>
 
-<div class="animated-bg"></div>
+<div class="loader"></div>
 
-<!-- NAVBAR -->
 <nav>
     <div class="nav-container">
         <div class="logo">A.N</div>
+
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
         </div>
-        <a href="#contact" class="contact-btn">Contact</a>
+
+        <div class="nav-actions">
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="#contact" class="contact-btn">Hire Me</a>
+        </div>
     </div>
 </nav>
 
-<!-- HERO -->
 <header id="about">
     <div class="header-content">
 
@@ -44,98 +52,45 @@
                 Hi, I'm <span class="name">Ansuman</span>
             </h1>
 
-            <p class="hero-subtitle">
-                Program Manager | IoT | Automation
-            </p>
+            <p class="hero-subtitle typing"></p>
 
             <p class="hero-description">
-                Managing cross-platform ecosystems (STB, Mobile, CMS) with focus on delivery, stakeholder alignment, and product quality.
+                Program Manager managing IoT, STB & Mobile ecosystems. I align teams, fix chaos, and deliver products that actually work.
             </p>
 
-            <a href="#contact" class="btn-primary">Contact Me</a>
-            <a href="#" class="btn-secondary">Download CV</a>
+            <a href="#contact" class="btn-primary">Let's Connect</a>
         </div>
 
         <div>
-            <img src="assets/images/ansu.jpg" class="profile-image" alt="profile">
+            <img src="assets/images/ansu.jpg" class="profile-image">
         </div>
 
     </div>
 </header>
 
-<!-- SKILLS -->
-<section class="container" id="skills">
-    <h2 class="section-title">Skills <span class="accent">.</span></h2>
-
-    <div class="skills-container">
-        <span class="skill-tag">Program Management</span>
-        <span class="skill-tag">Agile</span>
-        <span class="skill-tag">Jira</span>
-        <span class="skill-tag">Stakeholder Management</span>
-        <span class="skill-tag">Release Management</span>
-        <span class="skill-tag">IoT Systems</span>
-        <span class="skill-tag">Automation</span>
-    </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="container" id="experience">
-    <h2 class="section-title">Experience <span class="accent">.</span></h2>
-
-    <div class="experience-card">
-        <h3>Program Manager – Jio</h3>
-        <p>Managing STB, Mobile & CMS platforms with cross-team coordination.</p>
-    </div>
-
-    <div class="experience-card">
-        <h3>Project Coordinator – JioBook</h3>
-        <p>Handled release tracking, issue management and delivery coordination.</p>
-    </div>
-
-</section>
-
-<!-- PROJECTS -->
 <section class="container" id="projects">
-    <h2 class="section-title">Projects <span class="accent">.</span></h2>
+    <h2 class="section-title">Projects</h2>
 
     <div class="project-card">
         <h3>Smart Hospitality Platform</h3>
-        <p>Multi-platform IoT system integrating STB, mobile and CMS.</p>
+        <p>IoT-based ecosystem integrating STB, Mobile and CMS.</p>
     </div>
 
     <div class="project-card">
         <h3>Android AI Test Agent</h3>
-        <p>AI-based automation testing system.</p>
+        <p>AI automation framework for Android testing.</p>
     </div>
-
 </section>
 
-<!-- EDUCATION -->
-<section class="container" id="education">
-    <h2 class="section-title">Education <span class="accent">.</span></h2>
-
-    <div class="education-card">
-        <h3>B.Tech CSE</h3>
-        <p>LPU | CGPA 8.13</p>
-    </div>
-
-</section>
-
-<!-- CONTACT -->
 <section class="container" id="contact">
-    <h2 class="section-title">Contact <span class="accent">.</span></h2>
-
+    <h2 class="section-title">Contact</h2>
     <p>Email: nansuman2@gmail.com</p>
-    <p>GitHub: github.com/Ansuman2105</p>
-    <p>LinkedIn: linkedin.com/in/ansuman2000</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <p>© 2026 Ansuman Nayak</p>
 </footer>
 
-<!-- JS -->
 <script src="js/script.js"></script>
 
 </body>
