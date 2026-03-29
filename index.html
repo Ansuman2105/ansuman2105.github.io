@@ -529,16 +529,16 @@ h1 {
 /* Certificates Grid */
 .certificates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
     margin-top: 30px;
 }
 
 .certificate-card {
     background: rgba(30, 41, 59, 0.5);
     backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 30px;
+    border-radius: 16px;
+    padding: 18px;
     border: 1px solid rgba(56, 189, 248, 0.2);
     transition: all 0.4s ease;
     position: relative;
@@ -563,8 +563,8 @@ h1 {
 }
 
 .cert-icon {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     background: linear-gradient(135deg, #38bdf8, #0ea5e9);
     border-radius: 15px;
     display: flex;
@@ -575,12 +575,12 @@ h1 {
 }
 
 .cert-icon i {
-    font-size: 28px;
+    font-size: 20px;
     color: #0a0f1e;
 }
 
 .certificate-card h3 {
-    font-size: 20px;
+    font-size: 16px;
     color: #e2e8f0;
     margin-bottom: 10px;
     font-weight: 700;
@@ -1336,19 +1336,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Active navigation highlighting
-const sections = document.querySelectorAll('.section, header');
+const sections = document.querySelectorAll('section, header, .section');
 const navLinks = document.querySelectorAll('.nav-link');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 100)) {
+        const sectionTop = section.offsetTop - 150; // offset fix
+        const sectionHeight = section.offsetHeight;
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
             current = section.getAttribute('id');
         }
     });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+        }
+    });
+});
 
     navLinks.forEach(link => {
         link.classList.remove('active');
