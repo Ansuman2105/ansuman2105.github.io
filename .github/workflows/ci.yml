@@ -21,21 +21,27 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        
-      - name: Create issue on failure
-        if: failure()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `Test Failure - ${context.workflow}`,
-              body: `The CI pipeline failed. Please check logs in the Actions tab.`
-            })
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: npm test
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            try {
+              const runUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `Test Failure - ${context.workflow}`,
+                body: `The CI pipeline failed. Please check logs here: ${runUrl}`
+              });
+              console.log("Issue created successfully");
+            } catch (error) {
+              console.error("Failed to create issue:", error);
+            }
