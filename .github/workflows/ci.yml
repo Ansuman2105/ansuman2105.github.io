@@ -4,70 +4,41 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read
   issues: write
 
 jobs:
+
   build-and-test:
+
     runs-on: ubuntu-latest
 
-    timeout-minutes: 30
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v5
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: npm
 
-      - name: Install Dependencies
-        run: npm ci
+      - run: npm install
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+      - run: npx playwright install --with-deps
 
-      - name: Run Playwright Tests
-        run: npm test
+      - run: npm test
 
-      - name: Upload Playwright Report
+      - name: Upload Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: |
-            playwright-report
-            test-results
-          retention-days: 7
-
-      - name: Create Failure Report
-        if: failure()
-        run: |
-          cat <<EOF > issue.md
-          ## ❌ Portfolio CI Pipeline Failed
-
-          Repository: ${{ github.repository }}
-          Workflow: ${{ github.workflow }}
-          Branch: ${{ github.ref_name }}
-          Commit: ${{ github.sha }}
-          Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          Please check the uploaded Playwright report and workflow logs.
-          EOF
+          path: playwright-report/
 
       - name: Create GitHub Issue
         if: failure()
         uses: peter-evans/create-issue-from-file@v5
         with:
-          title: "❌ Portfolio CI Pipeline Failed"
-          content-filepath: ./issue.md
-          labels: |
-            bug
-            ci
+          title: Portfolio Test Failure
+          content-filepath: issue.md
