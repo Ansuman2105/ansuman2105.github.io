@@ -2,43 +2,72 @@ name: Portfolio CI Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 permissions:
-  issues: write   # 👈 This is the critical fix
+  contents: read
+  issues: write
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    timeout-minutes: 30
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v5
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
         with:
-          node-version: '18'
+          node-version: 22
+          cache: npm
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run Playwright Tests
         run: npm test
 
-      - name: Save test results
+      - name: Upload Playwright Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report
+            test-results
+          retention-days: 7
+
+      - name: Create Failure Report
         if: failure()
         run: |
-          echo "Pipeline failed. See logs here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" > issue.md
+          cat <<EOF > issue.md
+          ## ❌ Portfolio CI Pipeline Failed
 
-      - name: Create issue on failure
+          Repository: ${{ github.repository }}
+          Workflow: ${{ github.workflow }}
+          Branch: ${{ github.ref_name }}
+          Commit: ${{ github.sha }}
+          Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          Please check the uploaded Playwright report and workflow logs.
+          EOF
+
+      - name: Create GitHub Issue
         if: failure()
-        uses: peter-evans/create-issue-from-file@v4
+        uses: peter-evans/create-issue-from-file@v5
         with:
-          title: "Test Failure - Portfolio CI Pipeline"
+          title: "❌ Portfolio CI Pipeline Failed"
           content-filepath: ./issue.md
+          labels: |
+            bug
+            ci
