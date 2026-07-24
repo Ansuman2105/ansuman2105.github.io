@@ -21,6 +21,18 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Test Failure - ${context.workflow}`,
+              body: `The CI pipeline failed. Please check logs in the Actions tab.`
+            })
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
