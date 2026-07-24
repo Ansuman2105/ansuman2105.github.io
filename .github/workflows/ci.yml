@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  issues: write   # 👈 This is the critical fix
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
