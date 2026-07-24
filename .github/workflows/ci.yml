@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4   # updated to latest
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4 # updated to latest
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -31,7 +31,7 @@ jobs:
       - name: Save test results
         if: failure()
         run: |
-          echo "Pipeline failed. Check logs in Actions tab." > issue.md
+          echo "Pipeline failed. See logs here: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" > issue.md
 
       - name: Create issue on failure
         if: failure()
